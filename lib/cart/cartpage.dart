@@ -13,9 +13,9 @@ class CartPage extends StatelessWidget{
           onTap: (){
             Navigator.pop(context);
           },
-          child: Icon(Icons.arrow_back_ios),
+          child: const Icon(Icons.arrow_back_ios),
         ),
-        title: Text("Cart Detail"),
+        title: const Text("Cart Detail"),
       ),
       body: Body(),
     );

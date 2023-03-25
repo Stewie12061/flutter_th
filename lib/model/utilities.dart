@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:thflutter/model/prodcts.dart';
+import 'package:thflutter/model/products.dart';
 import 'package:convert/convert.dart';
 import 'package:quiver/strings.dart';
 import 'package:http/http.dart' as http;
@@ -22,7 +22,7 @@ class Utilities{
   }
 
   Products _fromJson(Map<String, dynamic> item){
-    return new Products(
+    return Products(
       description: item['description'],
       title: item['title'],
       image: item['image'],
@@ -36,11 +36,12 @@ class Utilities{
     }
     Pattern pattern =
         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
-    RegExp regExp = new RegExp(pattern.toString());
-    if(!regExp.hasMatch(value))
+    RegExp regExp = RegExp(pattern.toString());
+    if(!regExp.hasMatch(value)) {
       return 'Enter Valid Email';
-    else
+    } else {
       return "";
+    }
   }
 
   static String validatePassword(String value){
@@ -54,10 +55,11 @@ class Utilities{
   }
 
   static String conformPassword(String value, String value2){
-    if(!equalsIgnoreCase(value, value2))
+    if(!equalsIgnoreCase(value, value2)) {
       return "Conform password invalid";
-    else
+    } else {
       return "";
+    }
   }
 
 }

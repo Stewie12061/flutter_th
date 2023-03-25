@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:thflutter/homepage/components/body.dart';
-import 'package:thflutter/model/prodcts.dart';
+import 'package:thflutter/model/products.dart';
 
 import 'components/body.dart';
 
 class ProductPage extends StatelessWidget{
   static String routeName = "/detail";
+
+  const ProductPage({super.key});
   @override
   Widget build(BuildContext context) {
     final ProductDetailsArguments arguments =
@@ -18,17 +19,17 @@ class ProductPage extends StatelessWidget{
           onTap: (){
             Navigator.pop(context);
           },
-          child: Icon(Icons.arrow_back_ios),
+          child: const Icon(Icons.arrow_back_ios),
         ),
-        title: Text('Detail'),
+        title: const Text('Detail'),
       ),
-      body: Body(product: arguments.product),
+      body: Body(product: arguments!.product),
     );
   }
 }
 
-class ProductDetailArguments{
+class ProductDetailsArguments{
   final Products product;
 
-  ProductDetailArguments.Arguments({required this.product});
+  ProductDetailsArguments.Arguments({required this.product});
 }

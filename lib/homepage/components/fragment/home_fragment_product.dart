@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:thflutter/detail/productpage.dart';
-import 'package:thflutter/model/prodcts.dart';
+import 'package:thflutter/model/products.dart';
 import 'package:thflutter/model/utilities.dart';
 
 class ProductPopular extends StatelessWidget{

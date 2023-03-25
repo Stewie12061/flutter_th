@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:thflutter/model/carts.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:thflutter/model/prodcts.dart';
+import 'package:thflutter/model/products.dart';
 
 class AddProductToCart extends StatefulWidget{
   Products product;

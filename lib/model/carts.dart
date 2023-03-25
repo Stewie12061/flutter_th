@@ -1,4 +1,4 @@
-import 'prodcts.dart';
+import 'products.dart';
 
 class Cart{
   static List<Products> cart = [];

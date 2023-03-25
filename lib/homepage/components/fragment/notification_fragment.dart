@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:thflutter/homepage/components/fragment/home_fragment_product.dart';
-import 'package:thflutter/model/prodcts.dart';
+import 'package:thflutter/model/products.dart';
 
 class FavoriteDetail extends StatelessWidget{
   List<Products> products;

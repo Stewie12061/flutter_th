@@ -21,8 +21,8 @@ class _BodyState extends State<Body>{
   Widget build(BuildContext context) {
     List<Widget> screen = [
       HomeDetail(),
-      FavoriteDetail(Utilities().data),
-      NotificationDetail(),
+      FavoriteDetail(Utilities.data),
+      // NotificationDetail(),
       AccountDetail()
     ];
 
