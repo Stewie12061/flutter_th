@@ -1,58 +1,67 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
 import 'package:flutter/widgets.dart';
 
-import 'package:thflutter/detail/productpage.dart';
-import 'package:thflutter/model/products.dart';
-import 'package:thflutter/model/utilities.dart';
+import '../../../detail/productpage.dart';
+import '../../../model/products.dart';
+import '../../../model/utilities.dart';
 
-class ProductPopular extends StatelessWidget{
-  final products = Products.init();
-
+class ProductPopular extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var productsAPI = Utilities().getProducts();
     return Padding(
-      padding: EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(8),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          Row(
-            children: const [
+          const Row(
+            children: [
               Expanded(
-                  child: Text(
-                    'Popular Products',
+                child: Text(
+                  'Popular Products',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.green
-                  ),)),
-              Text('See more',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.lightGreen
-              ),),
+                    color: Colors.green,
+                  ),
+                ),
+              ),
+              Text(
+                'See more',
+                style: TextStyle(fontSize: 16, color: Colors.lightGreen),
+              ),
             ],
           ),
-          SizedBox(height: 10,),
-          Container(
-            child: GridView.builder(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              primary: false,
-              itemCount: products.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-                childAspectRatio: 0.7
-              ),
-              itemBuilder: (context,index){
-                return ProductItem(
-                  product: products[index],
+          SizedBox(height: 10),
+          FutureBuilder<List<Products>>(
+            future: Utilities().getProducts(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Container(
+                  child: GridView.builder(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    primary: false,
+                    itemCount: snapshot.data!.length,
+                    gridDelegate:
+                    const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                      childAspectRatio: 0.8,
+                    ),
+                    itemBuilder: (context, index) {
+                      return ProductItem(product: snapshot.data![index]);
+                    },
+                  ),
                 );
-              },
-            ),
+              } else if (snapshot.hasError) {
+                return Text('Error: ${snapshot.error}');
+              } else {
+                return CircularProgressIndicator();
+              }
+            },
           )
         ],
       ),
@@ -60,47 +69,57 @@ class ProductPopular extends StatelessWidget{
   }
 }
 
-class ProductItem extends StatelessWidget{
-  Products product;
+class ProductItem extends StatelessWidget {
+  final Products product;
+
   ProductItem({required this.product});
 
   @override
   Widget build(BuildContext context) {
-    if(product.image != null){
+    String imageUrl = product.image ?? '';
 
+    // check if the imageUrl is a URL or not
+    if (!RegExp('^(http|https)://.*').hasMatch(imageUrl)) {
+      // extract the URL from the string
+      imageUrl = RegExp(
+          r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
+          .stringMatch(imageUrl) ?? '';
     }
     return GestureDetector(
-      onTap: (){
-        Utilities.data.add(product);
+      onTap: () {
+        Utilities utilities = Utilities();
+        utilities.addProduct(product);
         Navigator.pushNamed(context, ProductPage.routeName,
-          arguments: ProductDetailsArguments(product: product));
+            arguments: ProductDetailsArguments(product: product));
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(product.image, fit: BoxFit.fill,),
-          Row(
-            children: [
-              Expanded(child: Text(product.title)),
-              Container(
-                padding: const EdgeInsets.all(2),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white),
-                  borderRadius: BorderRadius.circular(2),
-                  color: Colors.green
-                ),
-                child: Text(
-                  product.price.toString(),
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold
-                  ),),
-              )
-            ],
-          )
+          if (product.image != null)
+            Image.network(
+              imageUrl,
+              height: 100,
+              fit: BoxFit.cover,
+            ),
+          const SizedBox(height: 8),
+          Text(
+            product.title,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            '\$${product.price.toStringAsFixed(2)}',
+            style: const TextStyle(
+              fontSize: 14,
+              color: Colors.green,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ],
       ),
     );
   }
-
 }

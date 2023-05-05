@@ -1,20 +1,18 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-// import 'package:thflutter/signup/signupscreen.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
-import 'components/body.dart';
+
+import 'package:flutter/material.dart';
+import 'package:thflutter/signin/components/body.dart';
 
 class SignInPage extends StatelessWidget {
-  static String routeName = "/sign_in";
+
+ static String routeName = "/signin";
+  const SignInPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       resizeToAvoidBottomInset: false,
       body: Body(),
     );
   }
-
 }

@@ -61,6 +61,12 @@ dev_dependencies:
 flutter:
   assets:
     - assets/
+    - assets/foods/stewie.jpg
+    - assets/foods/kfc.jpg
+    - assets/foods/Starbucks.png
+    - assets/foods/Jolibee.png
+    - assets/foods/Lotteria.png
+    - assets/images/stewiecate.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

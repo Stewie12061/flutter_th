@@ -1,13 +1,12 @@
-import 'products.dart';
+import 'package:thflutter/model/products.dart';
 
-class Cart{
+class Cart {
   static List<Products> cart = [];
-  void addProductToCart(Products product){
-    cart.add(product);
+  void addProductToCart(Products? product){
+    cart.add(product!);
   }
 
-  List<Products> getCart(){
+  List<Products> getCart() {
     return cart;
   }
 }
-

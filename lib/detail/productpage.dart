@@ -1,35 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:thflutter/model/products.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 
+import '../model/products.dart';
 import 'components/body.dart';
 
-class ProductPage extends StatelessWidget{
-  static String routeName = "/detail";
+class ProductPage extends StatelessWidget {
+  static String routeName = '/details';
 
-  const ProductPage({super.key});
   @override
   Widget build(BuildContext context) {
     final ProductDetailsArguments arguments =
-        ModalRoute.of(context).settings.arguments;
-
+        ModalRoute.of(context)!.settings.arguments as ProductDetailsArguments;
     return Scaffold(
       appBar: AppBar(
         leading: GestureDetector(
-          onTap: (){
+          onTap: () {
             Navigator.pop(context);
           },
-          child: const Icon(Icons.arrow_back_ios),
+          child: Icon(Icons.arrow_back_ios),
         ),
-        title: const Text('Detail'),
+        title: Text('Details'),
       ),
-      body: Body(product: arguments!.product),
+      body: Body(
+        product: arguments.product,
+      ),
     );
   }
 }
 
-class ProductDetailsArguments{
+class ProductDetailsArguments {
   final Products product;
-
-  ProductDetailsArguments.Arguments({required this.product});
+  ProductDetailsArguments({required this.product});
 }
