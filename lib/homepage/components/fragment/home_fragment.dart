@@ -10,12 +10,16 @@ class HomeDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView(
-        children: [
-          CategoriesStore(),
-          ProductPopular(),
-        ],
-      ),
+      child:Container(
+      color: Colors.black,
+        child: ListView(
+          children: [
+            CategoriesStore(),
+            ProductPopular(),
+          ],
+        ),
+      )
+
     );
   }
 }

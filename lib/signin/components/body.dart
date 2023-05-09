@@ -9,11 +9,11 @@ class Body extends StatelessWidget {
     return SafeArea(
         child: SingleChildScrollView(
       child: Container(
+        color: Colors.white12,
         child: Column(
           children: [
             headerScreen(context),
-            SignInForm(),
-            footerScreen(context),
+            SignInForm()
           ],
         ),
       ),
@@ -23,18 +23,10 @@ class Body extends StatelessWidget {
   Widget headerScreen(BuildContext context) {
     return Container(
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 0.2,
-        alignment: Alignment.bottomRight,
+        height: MediaQuery.of(context).size.height * 0.4,
+        alignment: Alignment.topCenter,
         child: Image.network(
-            'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/processed-food700-350-e6d0f0f.jpg'));
+            'https://www.eatingwell.com/thmb/m5xUzIOmhWSoXZnY-oZcO9SdArQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/article_291139_the-top-10-healthiest-foods-for-kids_-02-4b745e57928c4786a61b47d8ba920058.jpg'));
   }
 
-  Widget footerScreen(BuildContext context) {
-    return Container(
-      height: 200,
-      alignment: Alignment.bottomLeft,
-      child: Image.network(
-          'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/processed-food700-350-e6d0f0f.jpg'),
-    );
-  }
 }

@@ -56,18 +56,18 @@ class _SignInFormState extends State<SignInForm> {
               width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.all(8),
               alignment: Alignment.center,
-              child: Column(
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
                     'Food Now',
                     style: TextStyle(
-                        fontSize: 32, color: Colors.green,
+                        fontSize: 32, color: Colors.yellow,
                         fontWeight: FontWeight.bold)
                   ),Text(
                     'Sign in with your email and password \nor continue with social media',
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.green,)
+                    style: TextStyle(color: Colors.black,)
                   ),
                 ],
               ),
@@ -145,7 +145,7 @@ class _SignInFormState extends State<SignInForm> {
                         },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                          backgroundColor: Colors.green,
+                          backgroundColor: Colors.yellow,
                         ),
                         child: const Text('Continue', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),),
                       ),
@@ -156,7 +156,7 @@ class _SignInFormState extends State<SignInForm> {
                       children: [
                         const Text(
                           "Don't have an account? ",
-                          style: TextStyle(color: Colors.green, fontSize: 14),
+                          style: TextStyle(color: Colors.black, fontSize: 14),
                         ),
                         GestureDetector(
                           onTap: () async {

@@ -15,14 +15,15 @@ class SplashPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
+          color: Colors.red,
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          decoration: const BoxDecoration(color: Colors.green),
-          child: Column(
+          // decoration: BoxDecoration(color: Colors.white),
+          child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               CircularProgressIndicator(
-                backgroundColor: Colors.white,
+                backgroundColor: Colors.black,
                 strokeWidth: 5,
               ),
               SizedBox(
@@ -31,7 +32,7 @@ class SplashPage extends StatelessWidget {
               Text(
                 "Loading...",
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 18),
               )

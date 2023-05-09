@@ -7,19 +7,18 @@ class MenuHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: 50,
-      alignment: Alignment.centerLeft,
-      decoration: BoxDecoration(color: Colors.green),
+      alignment: Alignment.center,
+      decoration: const BoxDecoration(color: Colors.yellow),
       child: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Row(
           children: [
-            Expanded(child: Text('Account info', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),)),
+            const Expanded(child: Text('Account info', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),)),
             GestureDetector(
               onTap: (){
 
               },
-              child: Text('Save', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),),
+              child: const Text('Save', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),),
             )
           ],
         ),

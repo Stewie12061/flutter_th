@@ -32,7 +32,7 @@ class _AccountDetailState extends State<AccountDetail> {
                 onPressed: () {
                   Navigator.pop(context,email.text);
                 },
-                style:ButtonStyle(foregroundColor: MaterialStateProperty.all<Color>(Colors.green)),
+                style:ButtonStyle(foregroundColor: MaterialStateProperty.all<Color>(Colors.yellow)),
                 child:const Text("Log out",style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,

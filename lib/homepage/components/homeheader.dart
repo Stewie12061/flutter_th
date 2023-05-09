@@ -10,7 +10,7 @@ class HomeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
+        const Expanded(
           child: TextField(
             decoration: InputDecoration(
               filled: true,
@@ -28,7 +28,7 @@ class HomeHeader extends StatelessWidget {
             height: 40,
             width: 40,
             padding: EdgeInsets.all(10),
-            child: Icon(Icons.shopping_cart_outlined),
+            child: const Icon(Icons.shopping_cart_outlined,color: Colors.black,),
           ),
         ),
       ],

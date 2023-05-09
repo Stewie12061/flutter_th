@@ -33,6 +33,7 @@ class _BodyState extends State<Body> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: flag ? HomeHeader() : MenuHeader(),
+        backgroundColor: Colors.yellow,
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -69,9 +70,6 @@ class _BodyState extends State<Body> {
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(
-              height: 10,
-            ),
             screen[selectIndex]
           ],
         ),

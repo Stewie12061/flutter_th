@@ -43,14 +43,14 @@ class _AddProductToCartState extends State<AddProductToCart> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.yellow,
           ),
           child: Text(
             "Add to cart",
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
         ));

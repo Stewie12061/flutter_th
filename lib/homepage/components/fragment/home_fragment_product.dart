@@ -23,13 +23,13 @@ class ProductPopular extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.green,
+                    color: Colors.yellow,
                   ),
                 ),
               ),
               Text(
                 'See more',
-                style: TextStyle(fontSize: 16, color: Colors.lightGreen),
+                style: TextStyle(fontSize: 16, color: Colors.yellowAccent),
               ),
             ],
           ),
@@ -72,7 +72,7 @@ class ProductPopular extends StatelessWidget {
 class ProductItem extends StatelessWidget {
   final Products product;
 
-  ProductItem({required this.product});
+  const ProductItem({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +93,7 @@ class ProductItem extends StatelessWidget {
             arguments: ProductDetailsArguments(product: product));
       },
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           if (product.image != null)
             Image.network(
@@ -102,22 +102,31 @@ class ProductItem extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           const SizedBox(height: 8),
-          Text(
-            product.title,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            '\$${product.price.toStringAsFixed(2)}',
-            style: const TextStyle(
-              fontSize: 14,
-              color: Colors.green,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Expanded(
+                child: Text(
+                  product.title,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              Text(
+                  '\$${product.price.toStringAsFixed(2)}',
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+            ],
+          )
+
         ],
       ),
     );

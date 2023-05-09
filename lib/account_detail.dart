@@ -44,14 +44,14 @@ class _AccountDetailState extends State<AccountDetail> {
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
-                  backgroundColor: Colors.green,
+                  backgroundColor: Colors.yellow,
                 ),
                 child: Text(
                   "Continue",
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
               ),

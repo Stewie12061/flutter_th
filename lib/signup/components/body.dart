@@ -12,11 +12,11 @@ class Body extends StatelessWidget {
         padding: EdgeInsets.all(10),
         child: Column(
           children: [
-            Text("Register Account", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.green, height: 1.5),),
-            Text(
+            const Text("Register Account", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.yellow, height: 1.5),),
+            const Text(
               "Complete your details or continue \n with social media",
               textAlign: TextAlign.center,
-              style: TextStyle(color: Color(0xFF4caf50),),
+              style: TextStyle(color: Colors.yellow,),
             ),
             SignUpForm(),
             ]
